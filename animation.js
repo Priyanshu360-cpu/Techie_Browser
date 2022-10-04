@@ -16,9 +16,7 @@ function Appus() {
     } ,[]);
     return  <Text>{count}</Text> ;
   }
-  const buttonhandler=()=>{
-    console.log("Button Pressed");
-  }
+ 
 export default function  Animater({navigation}) {
     const [count, setCount] = useState("");
     const fadeAnim = useRef(new Animated.Value(0)).current;
@@ -27,13 +25,6 @@ export default function  Animater({navigation}) {
         toValue: 1,
         useNativeDriver:true,
         duration: 5000
-      }).start();
-    };
-    const FadeOut = () => {
-      Animated.timing(fadeAnim, {
-        toValue: 0,
-        useNativeDriver:true,
-        duration: 3000
       }).start();
     };
     return (
