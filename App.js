@@ -14,7 +14,7 @@ export default function MyStack(){
         <Stack.Screen
           name="Home"
           component={Animater}
-          options={{ title: 'Welcome to Techie' }}
+          options={{ title: 'Welcome to Techie'}}
         />
          <Stack.Screen name="browserwin" component={Browserwin}
          options={{headerShown: false}}
