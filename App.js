@@ -16,7 +16,8 @@ export default function MyStack(){
           component={Animater}
           options={{ title: 'Welcome to Techie'}}
         />
-         <Stack.Screen name="browserwin" component={Browserwin}
+         <Stack.Screen name="browserwin" 
+         component={Browserwin}
          options={{headerShown: false}}
           />
       </Stack.Navigator>
