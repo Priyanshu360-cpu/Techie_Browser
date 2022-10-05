@@ -3,6 +3,7 @@ import React, { useRef, useState, useEffect }from "react";
 import { ImageBackground,Button, Image , Animated,StyleSheet, Text, TextInput, View } from 'react-native';
 import icon from './assets/icon.png';
 import bg from './assets/bg.gif';
+import * as FileSystem from 'expo-file-system';
 function Appus() {
     const [count, setCount] = useState("");
     const name=["G","a","m","e","r","s","\n","T","e","c","h","i","e","s","\n","A","l","l"," ","P","u","r","p","o","s","e"," "];
@@ -18,6 +19,15 @@ function Appus() {
   }
  
 export default function  Animater({navigation}) {
+  let a;
+  FileSystem.readAsStringAsync(FileSystem.documentDirectory + 'dataset.json').then((data)=>{
+  let a=JSON.parse(data);
+  if(a.tutorials_completed==1){
+  navigation.navigate('browserwin',{url:a.homepage});
+  }
+ else
+  FileSystem.writeAsStringAsync(FileSystem.documentDirectory + 'dataset.json', JSON.stringify({tutorials_completed:1,homepage:"https://www.google.com"}));
+});
     const [count, setCount] = useState("");
     const fadeAnim = useRef(new Animated.Value(0)).current;
     const FadeIn = () => {
