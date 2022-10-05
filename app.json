@@ -1,14 +1,16 @@
 {
   "expo": {
-    "name": "AwesomeProject2",
-    "slug": "AwesomeProject2",
+    "name": "Techie",
+    "slug": "Techie",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
+      "image": "./assets/icon.png",
+      "width": 50,
+      "height": 50,
+      "resizeMode": "stretch",
       "backgroundColor": "#ffffff"
     },
     "updates": {
