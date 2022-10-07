@@ -9,7 +9,7 @@ export default function App({navigation, route }) {
   <>
   <View style={styles.container}>
   <View style={styles.marker}>
-  <TextInput onChangeText={(text) => {a=text;console.log(a)}}
+  <TextInput onChangeText={(text) => {a=text;}}
    numberOfLines={10}
    style={{ height:100, textAlignVertical: 'top',}}>
    {"  "+route.params.url}
