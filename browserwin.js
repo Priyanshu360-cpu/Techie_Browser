@@ -5,11 +5,14 @@ import { WebView } from 'react-native-webview';
 import next_button from './assets/next.png';
 let a="https://www.google.com";
 export default function App({navigation, route }) {
+  
     return (
   <>
   <View style={styles.container}>
   <View style={styles.marker}>
-  <TextInput onChangeText={(text) => {a=text;}}
+  <TextInput onChangeText={(text) => {a=text;}
+  }
+  onSubmitEditing={()=>{navigation.navigate('browserwin', {url: a})}}
    numberOfLines={10}
    style={{ height:100, textAlignVertical: 'top',}}>
    {"  "+route.params.url}
