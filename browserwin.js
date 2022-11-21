@@ -30,6 +30,10 @@ export default function App({navigation, route }) {
     <WebView
             originWhitelist={['*']}
           source={{ uri: route.params.url}}
+          onHttpError={(syntheticEvent) => {
+            const { nativeEvent } = syntheticEvent;
+            console.warn('WebView error: ', nativeEvent);
+          }}
         />
   </>
        
