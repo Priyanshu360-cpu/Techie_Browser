@@ -7,20 +7,20 @@ import * as FileSystem from 'expo-file-system';
 
 function Appus() {
     const [count, setCount] = useState("");
-    const name=["G","a","m","e","r","s","\n","T","e","c","h","i","e","s","\n","A","l","l"," ","P","u","r","p","o","s","e"," "];
+    let name=["G","a","m","e","r","s","\n","T","e","c","h","i","e","s","\n","A","l","l"," ","P","u","r","p","o","s","e"," "];
     useEffect(() => {
-      for(let i=0;i<name.length;i++)
+      let p=1;
+      for(let i=0;i<name.length;i++){
       setTimeout(() => {
         if(name[i]=='\n') setCount((count)=>"");
         else
         setCount((count) => count + name[i]);
-      }, (i+1)*1000);
-    } ,[]);
+      }, (i+1)*p*1000);
+    } },[]);
     return  <Text>{count}</Text> ;
   }
  
 export default function  Animater({navigation}) {
-  let a;
   FileSystem.readAsStringAsync(FileSystem.documentDirectory + 'dataset.json').then((data)=>{
   let a=JSON.parse(data);
   if(a.tutorials_completed==1){
