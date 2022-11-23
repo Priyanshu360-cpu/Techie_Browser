@@ -28,12 +28,21 @@ export default function App({navigation, route }) {
   <Image source={bookmark} style={styles.booked}/>
   </View>
     <WebView
-            originWhitelist={['*']}
-          source={{ uri: route.params.url}}
-          onHttpError={(syntheticEvent) => {
-            const { nativeEvent } = syntheticEvent;
-            console.warn('WebView error: ', nativeEvent);
+          originWhitelist={['*']}
+          onNavigationStateChange={(event) => {
+            navigation.navigate('Browser', {url: event.url});
           }}
+          onError={(syntheticEvent) => {
+            const { nativeEvent } = syntheticEvent;
+            console.warn('WebViews error: ', nativeEvent);
+            return(<><Text>4048</Text></>);
+          }}
+          renderError={(errorName) => {
+            
+          }}
+          source={{ uri: route.params.url}}
+
+          
         />
   </>
        
