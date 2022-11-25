@@ -4,6 +4,8 @@ import { Image,TouchableOpacity, Animated,StyleSheet, Text, TextInput, View } fr
 import { WebView } from 'react-native-webview';
 import next_button from './assets/next.png';
 import bookmark from './assets/bookmark.png';
+import error from './assets/error.gif';
+let b={};
 let a="https://www.google.com";
 export default function App({navigation, route }) {
     return (
@@ -34,15 +36,24 @@ export default function App({navigation, route }) {
           }}
           onError={(syntheticEvent) => {
             const { nativeEvent } = syntheticEvent;
-            console.warn('WebViews error: ', nativeEvent);
+            console.log('WebViews error: ', nativeEvent);
+            b=nativeEvent;
             return(<><Text>4048</Text></>);
           }}
           renderError={(errorName) => {
-            
+            console.log(b);
+            return(
+            <View style={{position:"relative",top:0,left:0,height:650,width:550,backgroundColor:"black"}}>
+              <Image source={error} style={{height:650,width:370,position:'relative',top:0,left:0}}></Image>
+            <View style={{position:"relative",top:0,left:0,height:150,width:50,backgroundColor:"white"}}>
+            <Text style={{color:"white"}}>
+              Hi{b.description}
+            </Text>
+            </View>
+            </View>
+              );
           }}
           source={{ uri: route.params.url}}
-
-          
         />
   </>
        
