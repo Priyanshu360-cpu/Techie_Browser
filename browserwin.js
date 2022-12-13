@@ -17,7 +17,11 @@ export default function App({navigation, route }) {
   <View style={styles.marker}>
   <TextInput onChangeText={(text) => {a=text.trim();}
   }
-  onSubmitEditing={()=>{navigation.navigate('Browser', {url: a})}}
+  onSubmitEditing={()=>{
+    if(!a.includes(".com"))
+    navigation.navigate('Browser',{url:`www.google.com/search?q=${a}`});
+    else
+    navigation.navigate('Browser', {url: a})}}
    numberOfLines={10}
    style={{ height:100, textAlignVertical: 'top',}}>
    {"  "+route.params.url}
