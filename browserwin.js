@@ -18,6 +18,10 @@ export default function App({navigation, route }) {
   <TextInput onChangeText={(text) => {a=text.trim();}
   }
   onSubmitEditing={()=>{
+    let pattern = /@^(http\:\/\/|https\:\/\/)?([a-z0-9][a-z0-9\-]*\.)+[a-z0-9][a-z0-9\-]*$@i/;
+    console.log(a.match(pattern));
+
+    pattern.m
     if(!a.includes(".com"))
     navigation.navigate('Browser',{url:`www.google.com/search?q=${a}`});
     else
